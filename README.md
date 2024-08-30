@@ -26,6 +26,7 @@ import { contextBuilder } from 'react-context-builder';
 ```typescript
 interface State {
   count: number;
+  name: string | null;
 }
 
 interface ExtraActions {
@@ -34,7 +35,7 @@ interface ExtraActions {
 }
 
 const { Provider, useHook } = contextBuilder<State, ExtraActions>({
-  state: { count: 0 },
+  state: { count: 0, name: null },
   extraActions: {
     increment: (amount) => (state, dispatch) => dispatch({ type: 'INCREMENT', payload: amount }),
     decrement: (amount) => (state, dispatch) => dispatch({ type: 'DECREMENT', payload: amount }),
@@ -50,6 +51,7 @@ const App = () => {
         <p>Count: {state.count}</p>
         <button onClick={() => actions.increment(1)}>Increment</button>
         <button onClick={() => actions.decrement(1)}>Decrement</button>
+        <button onClick={() => actions.setName('Jane')}>Change Name</button>
       </div>
     </Provider>
   );
@@ -59,3 +61,5 @@ export default App;
 ````
 
 This example demonstrates how to create a context provider and a custom hook using the `contextBuilder` function. The `Provider` component wraps your application and provides the state and actions to its children. The `useHook` function returns the current state and the actions that can be used to update the state.
+
+Note that in addition to the custom `increment` and `decrement` actions, you automatically get setters for each state property. In this example, `actions.setName` is automatically generated and can be used to update the `name` state.
