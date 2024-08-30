@@ -1,0 +1,21 @@
+{
+  "name": "react-context-builder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/utils/contextBuilder/index.js",
+  "types": "dist/utils/contextBuilder/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.5.1",
+    "@types/react": "^18.3.5",
+    "typescript": "^5.5.4"
+  }
+}
